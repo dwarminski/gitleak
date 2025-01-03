@@ -7,16 +7,15 @@
 ## Table of Contents
 
 1. [Features](#features)
-2. [Installation](#installation)
-   - [Using the `.deb` Package](#using-the-deb-package)
-   - [Manual Dependency Installation](#manual-dependency-installation)
-3. [Usage](#usage)
+2. [Usage](#usage)
    - [Basic Examples](#basic-examples)
    - [How It Works](#how-it-works)
+3. [Installation](#installation)
+   - [Using the `.deb` Package](#using-the-deb-package)
+   - [Manual Dependency Installation](#manual-dependency-installation)
 4. [Example Output](#example-output)
 5. [Development](#development)
 6. [Troubleshooting](#troubleshooting)
-7. [License](#license)
 
 ---
 
@@ -26,7 +25,30 @@
 - **Custom Directory Support**: Specify any target directory for scanning.
 - **Ubuntu 24.04 Compatibility**: Resolves AppArmor restrictions automatically.
 - **Pre-installation Script**: Handles dependency checks and installs required packages (Docker and `lsb-release`).
-- **Lightweight**: Leverages Docker to run Gitleaks without requiring local installation.
+
+---
+
+## Usage
+
+### Basic Examples
+
+1. **Scan the Current Directory** (default):
+
+   ```bash
+   gitleak
+   ```
+
+2. **Scan a Specific Directory**:
+   ```bash
+   gitleak /path/to/target/directory
+   ```
+
+### How It Works
+
+- When no argument is provided, the script defaults to scanning the current working directory (`${PWD}`).
+- If a directory is specified, it uses the provided path for scanning.
+- On Ubuntu 24.04, the script adjusts AppArmor settings automatically to allow proper execution.
+- More info about issue: https://github.com/docker/desktop-linux/issues/209#issuecomment-2083540338
 
 ---
 
@@ -63,30 +85,6 @@ sudo apt install docker.io lsb-release
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
-
----
-
-## Usage
-
-### Basic Examples
-
-1. **Scan the Current Directory** (default):
-
-   ```bash
-   gitleak
-   ```
-
-2. **Scan a Specific Directory**:
-   ```bash
-   gitleak /path/to/target/directory
-   ```
-
-### How It Works
-
-- When no argument is provided, the script defaults to scanning the current working directory (`${PWD}`).
-- If a directory is specified, it uses the provided path for scanning.
-- On Ubuntu 24.04, the script adjusts AppArmor settings automatically to allow proper execution.
-- More info about issue: https://github.com/docker/desktop-linux/issues/209#issuecomment-2083540338
 
 ---
 
@@ -151,12 +149,6 @@ sudo systemctl start docker
      sudo usermod -aG docker $USER
      newgrp docker
      ```
-
----
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 

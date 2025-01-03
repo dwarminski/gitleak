@@ -3,6 +3,5 @@ Version: 1.0.0
 Section: utils
 Priority: optional
 Architecture: all
-Depends: docker.io, lsb-release
 Maintainer: github.com/dwarminski
 Description: Run GitLeaks faster, secure approach.

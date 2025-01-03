@@ -1,0 +1,20 @@
+#!/bin/bash
+# Pre-installation script to ensure dependencies are met
+
+# Check for Docker
+if ! command -v docker &> /dev/null; then
+    echo "Docker not found. Installing.."
+    sudo apt update
+    sudo apt install -y docker.io
+    sudo systemctl enable docker
+    sudo systemctl start docker
+fi
+
+# Check for lsb
+if ! command -v lsb_release &> /dev/null; then
+    echo "lsb-release not found. Installing.."
+    sudo apt update
+    sudo apt install -y lsb-release
+fi
+
+echo "Dependencies are satisfied."

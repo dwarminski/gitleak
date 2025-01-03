@@ -5,4 +5,4 @@ Priority: optional
 Architecture: all
 Depends: docker.io, lsb-release
 Maintainer: github.com/dwarminski
-Description: Run GitLeaks faster
+Description: Run GitLeaks faster, secure approach.

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# stupid bug on Ubuntu 24.04
+# Stupid bug on Ubuntu 24.04
 OS=$(lsb_release -si 2>/dev/null || echo "Unknown")
 VERSION=$(lsb_release -sr 2>/dev/null || echo "Unknown")
 
@@ -15,5 +15,5 @@ else
     TARGET_DIR="$1"      # provided
 fi
 
-# start
+# Start
 docker run --rm -v "${TARGET_DIR}:/path" zricethezav/gitleaks:latest detect --source=/path -v
